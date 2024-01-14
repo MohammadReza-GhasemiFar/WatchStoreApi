@@ -1,0 +1,507 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Watch Store API List",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api": {},
+        "/api/v1/send_sms": {
+            "post": {
+                "tags": [
+                    "Auth Api"
+                ],
+                "description": "use for send verification sms to user",
+                "operationId": "34907421430decd0ccbdc9877b69a346",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "Enter mobile number",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/verify_sms_code": {
+            "post": {
+                "tags": [
+                    "Auth Api"
+                ],
+                "description": "use to check sms code that recieved by user",
+                "operationId": "e1675d3d6afe52cfa674dfe6374b6239",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "user mobile number",
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "description": "recieved user sms code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/home": {
+            "get": {
+                "tags": [
+                    "Home Page"
+                ],
+                "description": "get home page data",
+                "operationId": "3ba172c300a1922190b46a0a37e12fab",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/payment": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "send products id in basket to payment",
+                "operationId": "8434e8cd75847412ac8573a0811cb41c",
+                "requestBody": {
+                    "description": "Data packet for Test",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "type": "integer",
+                                        "example": "4"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "example": [
+                                            {
+                                                "product_id": 2,
+                                                "count": 2
+                                            },
+                                            {
+                                                "product_id": 3,
+                                                "count": 2
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/most_sold_products": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products page data",
+                "operationId": "e9fc38c2f51252ab5efb6eb077586822",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/most_viewed_products": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products page data",
+                "operationId": "1ebc6de1adb33c4900192903b530c666",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/newest_products": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products page data",
+                "operationId": "5a0de1ee574939c68b70595d039d04a7",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cheapest_products": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products page data",
+                "operationId": "6350f3c577a9c7c4c4e2b8a8f8164fb8",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/most_expensive_products": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products page data",
+                "operationId": "3dc098945006dcc179dafc0c0cec6e8a",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/products_by_category/{id}": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products data by category id",
+                "operationId": "c0d64ebc45c1c536677794366898e372",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/products_by_brand/{id}": {
+            "get": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "get products data by brand id",
+                "operationId": "30cef463a7e3a2a6cc3e2817e53d85ff",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/products_detail/{id}": {
+            "get": {
+                "tags": [
+                    "Product Details"
+                ],
+                "description": "get product details data by product id",
+                "operationId": "12273159463d48d0a258cb55eaf55945",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/save_product_comment": {
+            "post": {
+                "tags": [
+                    "Product Details"
+                ],
+                "description": "save user comment for product",
+                "operationId": "193f51d793c77f42b77e5ffd08012c50",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "product_id": {
+                                        "description": "product id",
+                                        "type": "integer"
+                                    },
+                                    "parent_id": {
+                                        "description": "parent id",
+                                        "type": "integer"
+                                    },
+                                    "body": {
+                                        "description": "user comment text",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data saved",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/search_products": {
+            "post": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "search product",
+                "operationId": "010d428a67948da049bd10b8b1ef4ac2",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "tags": [
+                    "User Api"
+                ],
+                "description": "use to signin user with recieved code",
+                "operationId": "5c468f9e0f6bb6a0779c4a3f7c0f7100",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "description": "user image",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    },
+                                    "phone": {
+                                        "description": "user phone number",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "user name",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "user address",
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "description": "user postal code",
+                                        "type": "string"
+                                    },
+                                    "lat": {
+                                        "description": "user location latitude",
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "lang": {
+                                        "description": "user location longitude",
+                                        "type": "number",
+                                        "format": "double"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data saved",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/profile": {
+            "post": {
+                "tags": [
+                    "User info"
+                ],
+                "operationId": "29df1511df7eaf64ce674cacc25bfc50",
+                "responses": {
+                    "200": {
+                        "description": "It's Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Bearer",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
